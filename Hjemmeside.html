@@ -1,0 +1,2383 @@
+```html
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Johann K. Geertz | CV</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;600;700;800&family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, Arial, sans-serif;
+
+    --bg: #07101d;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #64748b;
+    --accent: #1769d2;
+    --accent2: #5ba5ff;
+    --panel: #eef6ff;
+    --border: #d6e3f3;
+
+    background: var(--bg);
+    color: var(--text);
+
+    transition:
+        background 0.6s ease,
+        color 0.6s ease;
+}
+
+
+/* =========================================================
+   THEME MENU
+========================================================= */
+
+.theme-menu {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 7px;
+
+    max-width: 470px;
+}
+
+.theme-menu button {
+    padding: 9px 12px;
+
+    border: 1px solid #ffffff33;
+    border-radius: 10px;
+
+    background: #101827dd;
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.25s;
+}
+
+.theme-menu button:hover {
+    transform: translateY(-3px) scale(1.04);
+}
+
+.theme-menu button.active {
+    background: white;
+    color: black;
+
+    box-shadow:
+        0 0 20px #ffffff66;
+}
+
+
+/* =========================================================
+   CV
+========================================================= */
+
+.cv {
+    position: relative;
+
+    width: 210mm;
+    min-height: 297mm;
+
+    margin: 85px auto 40px;
+
+    overflow: hidden;
+
+    background: var(--card);
+
+    box-shadow:
+        0 25px 80px #0008;
+
+    transition: 0.6s;
+}
+
+.background-art {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 245px;
+
+    padding: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0c438c,
+            #1681e8,
+            #114ea0
+        );
+
+    color: white;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            #ffffff22,
+            transparent 65%
+        );
+
+    transform: translateX(-100%);
+
+    animation: heroSweep 7s infinite;
+}
+
+@keyframes heroSweep {
+
+    50%,
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+.photo {
+    width: 145px;
+    height: 145px;
+
+    object-fit: cover;
+
+    border-radius: 24px;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 15px 40px #001b3d88;
+
+    background: #ddd;
+
+    flex-shrink: 0;
+
+    transition: 0.4s;
+}
+
+.photo:hover {
+    transform: rotate(-3deg) scale(1.05);
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+
+    font-size: 40px;
+
+    letter-spacing: -1.5px;
+}
+
+.hero h2 {
+    margin: 0 0 20px;
+
+    font-size: 19px;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.contact span {
+    padding: 7px 10px;
+
+    background: #ffffff1c;
+
+    border: 1px solid #ffffff33;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.layout {
+    display: grid;
+    grid-template-columns: 34% 66%;
+}
+
+.sidebar {
+    padding: 30px;
+
+    background: var(--panel);
+
+    border-right: 1px solid var(--border);
+}
+
+.main {
+    padding: 30px 34px;
+
+    background: var(--card);
+}
+
+section {
+    margin-bottom: 27px;
+}
+
+h3 {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 0 0 13px;
+
+    color: var(--accent);
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+h3::before {
+    content: "";
+
+    width: 25px;
+    height: 3px;
+
+    background: var(--accent);
+
+    border-radius: 10px;
+}
+
+p {
+    margin: 0 0 10px;
+
+    font-size: 13.5px;
+
+    line-height: 1.6;
+}
+
+ul {
+    margin: 7px 0;
+
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill {
+    margin-bottom: 12px;
+}
+
+.skill b {
+    font-size: 12px;
+}
+
+.bar {
+    height: 7px;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+
+    background: #ffffff99;
+
+    border-radius: 10px;
+}
+
+.bar i {
+    display: block;
+
+    height: 100%;
+
+    background: var(--accent);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.job,
+.edu {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    padding-left: 18px;
+    padding-bottom: 17px;
+
+    border-left: 2px solid var(--accent);
+}
+
+.job::before,
+.edu::before {
+    content: "";
+
+    position: absolute;
+
+    left: -6px;
+    top: 3px;
+
+    width: 9px;
+    height: 9px;
+
+    background: var(--accent);
+
+    border-radius: 50%;
+}
+
+.job h4,
+.edu h4 {
+    margin: 0 0 3px;
+
+    font-size: 15px;
+}
+
+.meta {
+    margin-bottom: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.socials a {
+    padding: 8px 11px;
+
+    background: white;
+
+    color: var(--accent);
+
+    text-decoration: none;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.socials a:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding: 18px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   PROFESSIONAL
+========================================================= */
+
+.theme-professional {
+    --bg: #07101d;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #64748b;
+    --accent: #1769d2;
+    --panel: #eef6ff;
+    --border: #d6e3f3;
+}
+
+.theme-professional .background-art::before {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    right: -300px;
+    top: 100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #3d9cff44,
+            transparent 65%
+        );
+
+    animation: professionalFloat 8s infinite ease-in-out;
+}
+
+@keyframes professionalFloat {
+
+    50% {
+        transform: translateY(-40px) scale(1.1);
+    }
+}
+
+
+/* =========================================================
+   MINECRAFT EXTREME
+========================================================= */
+
+.theme-minecraft {
+    --bg: #08040d;
+    --card: #17111e;
+    --text: #eee5ff;
+    --muted: #bba9d0;
+    --accent: #a855f7;
+    --panel: #251b30;
+    --border: #56386d;
+}
+
+.theme-minecraft .cv {
+    border-radius: 0;
+
+    border: 5px solid #30203c;
+
+    box-shadow:
+        0 0 0 8px #120b18,
+        0 0 80px #a855f788;
+}
+
+.theme-minecraft .hero {
+    min-height: 260px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #120819,
+            #4c1d95,
+            #160b20
+        );
+
+    border-bottom: 8px solid #08040b;
+
+    font-family: "Press Start 2P", monospace;
+}
+
+.theme-minecraft .hero h1 {
+    font-size: 25px;
+
+    line-height: 1.6;
+
+    text-shadow:
+        5px 5px #09040e,
+        0 0 20px #a855f7;
+}
+
+.theme-minecraft .hero h2 {
+    font-size: 12px;
+}
+
+.theme-minecraft .photo {
+    border-radius: 0;
+
+    border: 6px solid #9ca3af;
+
+    box-shadow:
+        inset 0 0 0 5px #374151,
+        8px 8px #08040c;
+}
+
+.theme-minecraft .sidebar {
+    background: #251b30;
+}
+
+.theme-minecraft .main {
+    background: #17111e;
+}
+
+.theme-minecraft h3 {
+    font-family: "Press Start 2P";
+
+    font-size: 9px;
+
+    color: #c084fc;
+}
+
+.theme-minecraft h3::before {
+    background: #c084fc;
+}
+
+.theme-minecraft .job,
+.theme-minecraft .edu {
+    border-left: 4px solid #7c3aed;
+}
+
+.theme-minecraft .job::before,
+.theme-minecraft .edu::before {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 0;
+
+    background: #c084fc;
+
+    box-shadow:
+        0 0 0 3px #3b2454;
+}
+
+.theme-minecraft .bar {
+    height: 12px;
+
+    border-radius: 0;
+
+    border: 2px solid #6b7280;
+
+    background: #09060d;
+}
+
+.theme-minecraft .bar i {
+    border-radius: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #84cc16
+        );
+}
+
+.theme-minecraft .contact span {
+    border-radius: 0;
+
+    border: 2px solid #6941a1;
+
+    background: #21142f;
+}
+
+.theme-minecraft .socials a {
+    border-radius: 0;
+
+    border: 2px solid #65477c;
+
+    background: #2b2035;
+
+    color: #d8b4fe;
+}
+
+.theme-minecraft .background-art::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #c084fc 0 3px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 70% 40%,
+            #a855f7 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            #c084fc 0 3px,
+            transparent 4px
+        );
+
+    background-size:
+        130px 100px,
+        170px 140px,
+        110px 130px;
+
+    animation: endParticles 4s linear infinite;
+}
+
+.theme-minecraft .background-art::after {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 380px;
+
+    right: -70px;
+    top: 330px;
+
+    opacity: .4;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #000 0 12%,
+            transparent 13%
+        ),
+        linear-gradient(
+            150deg,
+            transparent 40%,
+            #08030c 41% 47%,
+            transparent 48%
+        ),
+        linear-gradient(
+            30deg,
+            transparent 40%,
+            #08030c 41% 47%,
+            transparent 48%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 25px #a855f7
+        );
+
+    transform: rotate(-5deg);
+}
+
+@keyframes endParticles {
+
+    to {
+        transform: translateY(100px);
+    }
+}
+
+
+/* =========================================================
+   MW2 EXTREME
+========================================================= */
+
+.theme-gaming {
+    --bg: #030503;
+    --card: #101510;
+    --text: #d9e1d6;
+    --muted: #8d9c88;
+    --accent: #a6d936;
+    --panel: #151c15;
+    --border: #384832;
+}
+
+.theme-gaming .cv {
+    border-radius: 2px;
+
+    border: 2px solid #516c3b;
+
+    box-shadow:
+        0 0 40px #9acd3244,
+        inset 0 0 70px #0008;
+}
+
+.theme-gaming .hero {
+    min-height: 260px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #090d09,
+            #29351e,
+            #101510
+        );
+
+    border-bottom: 3px solid #9acd32;
+
+    font-family: Orbitron;
+}
+
+.theme-gaming .hero::before {
+    content:
+        "CLASSIFIED // TASK FORCE // MW2";
+
+    position: absolute;
+
+    top: 15px;
+    left: 20px;
+
+    color: #a6d936;
+
+    font-family: "Share Tech Mono";
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.theme-gaming .hero::after {
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 5px,
+            #a6d93608 6px
+        );
+}
+
+.theme-gaming .hero h1 {
+    font-size: 34px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 15px #a6d936;
+}
+
+.theme-gaming .photo {
+    border-radius: 2px;
+
+    border: 2px solid #a6d936;
+
+    filter:
+        grayscale(.4)
+        contrast(1.2);
+
+    box-shadow:
+        0 0 25px #a6d93655;
+}
+
+.theme-gaming .sidebar,
+.theme-gaming .main {
+    background: #101510;
+}
+
+.theme-gaming h3 {
+    color: #b9ed59;
+
+    font-family: Orbitron;
+}
+
+.theme-gaming h3::before {
+    background: #a6d936;
+}
+
+.theme-gaming p,
+.theme-gaming li,
+.theme-gaming .meta {
+    font-family: "Share Tech Mono";
+
+    font-size: 12px;
+}
+
+.theme-gaming .job,
+.theme-gaming .edu {
+    border-left: 1px dashed #728c55;
+}
+
+.theme-gaming .job::before,
+.theme-gaming .edu::before {
+    border-radius: 0;
+
+    background: #a6d936;
+
+    box-shadow:
+        0 0 12px #a6d936;
+}
+
+.theme-gaming .contact span,
+.theme-gaming .socials a {
+    border-radius: 1px;
+
+    background: #080b08;
+
+    border: 1px solid #50663c;
+
+    color: #b9ed59;
+}
+
+.theme-gaming .bar {
+    border-radius: 0;
+
+    background: #050705;
+
+    border: 1px solid #46583a;
+}
+
+.theme-gaming .bar i {
+    border-radius: 0;
+
+    background: #a6d936;
+}
+
+.theme-gaming .background-art::before {
+    content:
+        "MISSION ACCEPTED   //   OBJECTIVE: IT SUPPORT\n\n"
+        ">> PLAYER: JOHANN\n"
+        ">> STATUS: ONLINE\n"
+        ">> THREAT LEVEL: LOW\n"
+        ">> NETWORK: CONNECTED\n"
+        ">> HARDWARE: READY\n"
+        ">> XP: ████████████████";
+
+    white-space: pre;
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 70px;
+
+    color: #a6d93615;
+
+    font-family: "Share Tech Mono";
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    transform: rotate(-3deg);
+}
+
+.theme-gaming .background-art::after {
+    content: "/// NOOB?  NO.  IT SUPPORT. ///";
+
+    position: absolute;
+
+    right: 25px;
+    top: 300px;
+
+    color: #a6d93620;
+
+    font-family: Orbitron;
+
+    font-size: 20px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   ANIME EXTREME
+========================================================= */
+
+.theme-anime {
+    --bg: #10031a;
+    --card: #170c22;
+    --text: #fff0ff;
+    --muted: #d2aedc;
+    --accent: #ff4fa3;
+    --panel: #23102f;
+    --border: #70355f;
+}
+
+.theme-anime {
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            #7020a0,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #080012,
+            #2b0b40,
+            #071b3a
+        );
+}
+
+.theme-anime .cv {
+    border-radius: 30px;
+
+    border: 2px solid #ff4fa3;
+
+    box-shadow:
+        0 0 0 5px #ff4fa322,
+        0 0 90px #ff4fa366;
+}
+
+.theme-anime .hero {
+    min-height: 265px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #4c126c,
+            #d32683,
+            #3d20a0
+        );
+
+    font-family: Orbitron;
+}
+
+.theme-anime .hero h1 {
+    font-size: 41px;
+
+    text-shadow:
+        0 0 20px white,
+        4px 4px #7c1d67;
+}
+
+.theme-anime .hero h2 {
+    font-size: 15px;
+}
+
+.theme-anime .photo {
+    border-radius: 50%;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 0 35px #ff4fa3;
+}
+
+.theme-anime .sidebar {
+    background:
+        linear-gradient(
+            180deg,
+            #23102f,
+            #160a22
+        );
+}
+
+.theme-anime h3 {
+    color: #ff8bc2;
+
+    font-family: Orbitron;
+}
+
+.theme-anime h3::before {
+    background: #ff4fa3;
+}
+
+.theme-anime .job,
+.theme-anime .edu {
+    border-left: 3px solid #ff4fa3;
+}
+
+.theme-anime .job::before,
+.theme-anime .edu::before {
+    background: #7df9ff;
+
+    box-shadow:
+        0 0 15px #7df9ff;
+}
+
+.theme-anime .contact span,
+.theme-anime .socials a {
+    border: 1px solid #ff4fa3;
+
+    background: #251331;
+
+    color: #ffb3d6;
+}
+
+.theme-anime .bar {
+    background: #0b0710;
+}
+
+.theme-anime .bar i {
+    background:
+        linear-gradient(
+            90deg,
+            #ff4fa3,
+            #7df9ff
+        );
+}
+
+.theme-anime .background-art::before {
+    content: "✦   ✧   ✦   ✧   ✦   ✧";
+
+    position: absolute;
+
+    inset: 0;
+
+    color: #ff9ccc20;
+
+    font-size: 70px;
+
+    line-height: 2.4;
+
+    letter-spacing: 50px;
+
+    transform: rotate(-12deg);
+
+    animation: animeStars 8s linear infinite;
+}
+
+.theme-anime .background-art::after {
+    content:
+        "★ POWER LEVEL: 9000+\A"
+        "★ SKILL: TROUBLESHOOTING\A"
+        "★ CLASS: IT SUPPORT";
+
+    white-space: pre;
+
+    position: absolute;
+
+    right: 15px;
+    bottom: 90px;
+
+    color: #ff4fa326;
+
+    font-family: Orbitron;
+
+    font-size: 16px;
+
+    line-height: 2;
+
+    transform: rotate(-8deg);
+}
+
+@keyframes animeStars {
+
+    50% {
+        transform:
+            rotate(-12deg)
+            translate(-80px,80px);
+    }
+}
+
+
+/* =========================================================
+   MONSTER HUNTER EXTREME
+========================================================= */
+
+.theme-monster {
+    --bg: #050403;
+    --card: #191712;
+    --text: #eee6d0;
+    --muted: #b6a98d;
+    --accent: #d99a2b;
+    --panel: #252117;
+    --border: #604c2c;
+}
+
+.theme-monster {
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            #7b3e0c,
+            transparent 35%
+        ),
+        #050403;
+}
+
+.theme-monster .cv {
+    border-radius: 4px;
+
+    border: 5px solid #3c2d19;
+
+    box-shadow:
+        0 0 0 8px #171007,
+        0 0 90px #d99a2b55;
+}
+
+.theme-monster .hero {
+    min-height: 265px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #211b10,
+            #704515,
+            #21160b
+        );
+
+    border-bottom: 5px solid #a86d16;
+
+    font-family: Orbitron;
+}
+
+.theme-monster .hero h1 {
+    font-size: 38px;
+
+    text-shadow:
+        4px 4px #120c05,
+        0 0 15px #d99a2b;
+}
+
+.theme-monster .photo {
+    border-radius: 4px;
+
+    border: 4px solid #d99a2b;
+
+    box-shadow:
+        0 0 30px #d99a2b77;
+}
+
+.theme-monster .sidebar {
+    background: #252117;
+}
+
+.theme-monster .main {
+    background: #191712;
+}
+
+.theme-monster h3 {
+    color: #e9b84c;
+
+    font-family: Orbitron;
+}
+
+.theme-monster h3::before {
+    background: #d99a2b;
+}
+
+.theme-monster .job,
+.theme-monster .edu {
+    border-left: 4px solid #8d641f;
+}
+
+.theme-monster .job::before,
+.theme-monster .edu::before {
+    background: #d99a2b;
+
+    box-shadow:
+        0 0 0 3px #493618;
+}
+
+.theme-monster .contact span,
+.theme-monster .socials a {
+    border-radius: 3px;
+
+    background: #211b12;
+
+    border: 1px solid #745426;
+
+    color: #eacb83;
+}
+
+.theme-monster .bar {
+    background: #0b0906;
+
+    border: 1px solid #5f4824;
+}
+
+.theme-monster .bar i {
+    background:
+        linear-gradient(
+            90deg,
+            #9d5d12,
+            #f0bd45
+        );
+}
+
+.theme-monster .background-art::before {
+    content:
+        "HUNTER'S GUILD\A"
+        "━━━━━━━━━━━━━━\A"
+        "QUEST ACCEPTED\A\A"
+        "TARGET:\A"
+        "IT SUPPORT\A\A"
+        "REWARD:\A"
+        "NEW SKILLS + EXP";
+
+    white-space: pre;
+
+    position: absolute;
+
+    right: 25px;
+    top: 310px;
+
+    color: #d99a2b22;
+
+    font-family: "Share Tech Mono";
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    transform: rotate(-5deg);
+}
+
+.theme-monster .background-art::after {
+    content: "";
+
+    position: absolute;
+
+    width: 550px;
+    height: 400px;
+
+    right: -100px;
+    bottom: 60px;
+
+    opacity: .25;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #000 0 14%,
+            transparent 15%
+        ),
+        linear-gradient(
+            150deg,
+            transparent 40%,
+            #000 41% 48%,
+            transparent 49%
+        ),
+        linear-gradient(
+            30deg,
+            transparent 40%,
+            #000 41% 48%,
+            transparent 49%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 30px #d99a2b
+        );
+}
+
+
+/* =========================================================
+   TERMINAL EXTREME
+========================================================= */
+
+.theme-terminal {
+    --bg: #000;
+    --card: #020803;
+    --text: #72ff8b;
+    --muted: #3da951;
+    --accent: #39ff68;
+    --panel: #061108;
+    --border: #145b27;
+}
+
+.theme-terminal {
+    background: #000;
+}
+
+.theme-terminal .cv {
+    border-radius: 0;
+
+    border: 2px solid #39ff68;
+
+    box-shadow:
+        0 0 50px #39ff6833,
+        inset 0 0 100px #39ff6808;
+
+    font-family: "Share Tech Mono";
+}
+
+.theme-terminal .hero {
+    min-height: 260px;
+
+    background: #010401;
+
+    border-bottom: 1px solid #39ff68;
+}
+
+.theme-terminal .hero h1 {
+    font-family: "Share Tech Mono";
+
+    font-size: 38px;
+
+    color: #39ff68;
+
+    text-shadow:
+        0 0 15px #39ff68;
+}
+
+.theme-terminal .hero h1::before {
+    content: "> ";
+}
+
+.theme-terminal .hero h2 {
+    font-size: 15px;
+}
+
+.theme-terminal .photo {
+    border-radius: 0;
+
+    border: 1px solid #39ff68;
+
+    filter:
+        grayscale(1)
+        sepia(1)
+        hue-rotate(80deg)
+        contrast(1.4);
+
+    box-shadow:
+        0 0 25px #39ff6844;
+}
+
+.theme-terminal .sidebar,
+.theme-terminal .main {
+    background: #020803;
+}
+
+.theme-terminal h3 {
+    color: #39ff68;
+
+    font-family: "Share Tech Mono";
+}
+
+.theme-terminal h3::before {
+    background: #39ff68;
+}
+
+.theme-terminal p,
+.theme-terminal li,
+.theme-terminal .meta {
+    font-family: "Share Tech Mono";
+
+    font-size: 12px;
+}
+
+.theme-terminal .job,
+.theme-terminal .edu {
+    border-left: 1px dashed #39ff68;
+}
+
+.theme-terminal .job::before,
+.theme-terminal .edu::before {
+    border-radius: 0;
+
+    background: #39ff68;
+
+    box-shadow:
+        0 0 12px #39ff68;
+}
+
+.theme-terminal .contact span,
+.theme-terminal .socials a {
+    border-radius: 0;
+
+    background: #010401;
+
+    border: 1px solid #155d28;
+
+    color: #39ff68;
+}
+
+.theme-terminal .bar {
+    border-radius: 0;
+
+    background: #010201;
+
+    border: 1px solid #155d28;
+}
+
+.theme-terminal .bar i {
+    border-radius: 0;
+
+    background: #39ff68;
+}
+
+.theme-terminal .background-art::before {
+    content:
+        "$ sudo load_cv --user=johann\A"
+        "> ACCESS GRANTED\A"
+        "> SYSTEM ONLINE\A"
+        "> loading profile...\A"
+        "> scanning hardware...\A"
+        "> network: OK\A"
+        "> firewall: ACTIVE\A"
+        "> user privileges: STANDARD\A"
+        "> status: READY";
+
+    white-space: pre;
+
+    position: absolute;
+
+    inset: 25px;
+
+    color: #39ff6814;
+
+    font-family: "Share Tech Mono";
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    animation: terminalFlicker 2s infinite;
+}
+
+.theme-terminal .background-art::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 3px,
+            #39ff6808 4px
+        );
+}
+
+@keyframes terminalFlicker {
+
+    50% {
+        opacity: .45;
+    }
+}
+
+
+/* =========================================================
+   EASTER EGG
+========================================================= */
+
+.easter-egg {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30000;
+
+    display: none;
+
+    place-items: center;
+
+    padding: 20px;
+
+    background: #000d;
+}
+
+.easter-egg.show {
+    display: grid;
+}
+
+.easter-box {
+    width: min(700px, 95vw);
+
+    padding: 30px;
+
+    background: #101827;
+
+    color: white;
+
+    border: 2px solid #5ba5ff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 100px #1769d2aa;
+
+    text-align: center;
+}
+
+.easter-box h2 {
+    margin-top: 0;
+}
+
+.easter-video {
+    width: 100%;
+
+    max-height: 60vh;
+
+    background: black;
+
+    border-radius: 10px;
+}
+
+.close-button {
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 800;
+}
+
+.konami-active .cv {
+    animation: shake .12s infinite;
+}
+
+@keyframes shake {
+
+    0% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(3px, -2px);
+    }
+
+    50% {
+        transform: translate(-3px, 2px);
+    }
+
+    75% {
+        transform: translate(2px, 1px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px) {
+
+    .theme-menu {
+        position: sticky;
+
+        top: 0;
+
+        max-width: none;
+
+        justify-content: center;
+
+        padding: 8px;
+
+        background: #080d15ee;
+    }
+
+    .cv {
+        width: 100%;
+
+        margin: 0;
+
+        border-radius: 0 !important;
+    }
+
+    .hero {
+        padding: 30px 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .photo {
+        width: 125px;
+        height: 125px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: 0;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .main {
+        padding: 25px 20px;
+    }
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    @page {
+        size: A4 portrait;
+
+        margin: 10mm;
+    }
+
+    body {
+        background: white !important;
+    }
+
+    .theme-menu,
+    .easter-egg {
+        display: none !important;
+    }
+
+    .cv {
+        width: 100%;
+
+        min-height: auto;
+
+        margin: 0;
+
+        box-shadow: none !important;
+
+        border-radius: 0 !important;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .background-art {
+        opacity: .15;
+    }
+}
+</style>
+</head>
+
+
+<body class="theme-professional">
+
+
+<!-- =======================================================
+     THEME MENU
+======================================================= -->
+
+<div class="theme-menu">
+
+    <button
+        class="active"
+        onclick="changeTheme('professional', this)">
+        💼 Professional
+    </button>
+
+    <button
+        onclick="changeTheme('minecraft', this)">
+        ⛏️ Minecraft
+    </button>
+
+    <button
+        onclick="changeTheme('gaming', this)">
+        🎯 MW2
+    </button>
+
+    <button
+        onclick="changeTheme('anime', this)">
+        🌸 Anime
+    </button>
+
+    <button
+        onclick="changeTheme('monster', this)">
+        🐉 Monster Hunter
+    </button>
+
+    <button
+        onclick="changeTheme('terminal', this)">
+        💻 Terminal
+    </button>
+
+</div>
+
+
+<!-- =======================================================
+     CV
+======================================================= -->
+
+<main class="cv">
+
+    <div class="background-art"></div>
+
+
+    <div class="content">
+
+
+        <!-- HERO -->
+
+        <header class="hero">
+
+            <img
+                src="billede.png"
+                class="photo"
+                alt="Profilbillede af Johann K. Geertz"
+            >
+
+
+            <div>
+
+                <h1>
+                    Johann K. Geertz
+                </h1>
+
+                <h2>
+                    IT-Supporter / Datateknikerelev
+                </h2>
+
+
+                <div class="contact">
+
+                    <span>
+                        📍 Ulkebøldam 107, 6400 Sønderborg
+                    </span>
+
+                    <span>
+                        📞 42 67 89 88
+                    </span>
+
+                    <span>
+                        ✉️ geertzjohann@gmail.com
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <div class="layout">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+
+                <section>
+
+                    <h3>
+                        Kompetencer
+                    </h3>
+
+
+                    <div class="skill">
+
+                        <b>
+                            Lærenem og nysgerrig
+                        </b>
+
+                        <div class="bar">
+                            <i style="width:95%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <b>
+                            Ansvarsbevidst og stabil
+                        </b>
+
+                        <div class="bar">
+                            <i style="width:92%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <b>
+                            Teknisk forståelse
+                        </b>
+
+                        <div class="bar">
+                            <i style="width:90%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <b>
+                            Problemløsende
+                        </b>
+
+                        <div class="bar">
+                            <i style="width:90%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <b>
+                            Fleksibel og imødekommende
+                        </b>
+
+                        <div class="bar">
+                            <i style="width:88%"></i>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        IT & Teknik
+                    </h3>
+
+                    <p>
+                        Stor interesse for IT og teknologi.
+                        Jeg bygger og arbejder med computere,
+                        har forståelse for hardware og trives
+                        med praktisk fejlfinding og problemløsning.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        Sprog
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <b>Tysk</b> – Modersmål
+                        </li>
+
+                        <li>
+                            <b>Dansk</b> – Flydende
+                        </li>
+
+                        <li>
+                            <b>Engelsk</b> – Avanceret
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        Certifikater
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Gaffeltruck certifikat B
+                        </li>
+
+                        <li>
+                            Epoxy
+                        </li>
+
+                        <li>
+                            Stillads
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        Online
+                    </h3>
+
+                    <div class="socials">
+
+                        <a
+                            href="DIN-LINKEDIN-LINK"
+                            target="_blank">
+                            LinkedIn
+                        </a>
+
+                        <a
+                            href="DIN-INSTAGRAM-LINK"
+                            target="_blank">
+                            Instagram
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+            </aside>
+
+
+            <!-- MAIN -->
+
+            <div class="main">
+
+
+                <section>
+
+                    <h3>
+                        Profil
+                    </h3>
+
+                    <p>
+                        Jeg har en stor interesse for IT og computere
+                        og bruger meget af min fritid på at bygge
+                        computere, arbejde med hardware og finde
+                        praktiske løsninger på tekniske problemer.
+                        Jeg ønsker at udvikle denne interesse til
+                        en karriere inden for IT-support og IT-drift,
+                        hvor jeg kan arbejde med hardware, netværk,
+                        fejlfinding og brugersupport.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        Erhvervserfaring
+                    </h3>
+
+
+                    <div class="job">
+
+                        <h4>
+                            Montør af specialindretning / interiør
+                        </h4>
+
+                        <div class="meta">
+                            VBI, Kliplev · Januar 2024 – Oktober 2025
+                        </div>
+
+                        <p>
+                            Arbejde med specialindretning af køretøjer,
+                            mekaniske komponenter og elektriske systemer
+                            som LED-belysning, højtalere og varme.
+                            Krævede præcision, teknisk forståelse
+                            og fejlfinding.
+                        </p>
+
+                    </div>
+
+
+                    <div class="job">
+
+                        <h4>
+                            Køkkenmedhjælper
+                        </h4>
+
+                        <div class="meta">
+                            Hotel Sønderborg Strand,
+                            Sønderborg · Juli 2021 – Januar 2024
+                        </div>
+
+                        <p>
+                            Ansvar for buffet til 50–100 personer,
+                            kvalitet og kundeservice samt at bevare
+                            overblikket og tage ansvar i travle
+                            situationer.
+                        </p>
+
+                    </div>
+
+
+                    <div class="job">
+
+                        <h4>
+                            Snedkersvend / Tømrer
+                        </h4>
+
+                        <div class="meta">
+                            Syddansk Håndværkerservice,
+                            Sønderborg · Juni 2019 – April 2022
+                        </div>
+
+                        <p>
+                            Selvstændige tømrer- og renoveringsopgaver
+                            med ansvar på byggepladser. Koordinering
+                            af medarbejdere samt fokus på præcision,
+                            planlægning og problemløsning.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        Uddannelse
+                    </h3>
+
+
+                    <div class="edu">
+
+                        <h4>
+                            Datatekniker / IT-Supporter
+                        </h4>
+
+                        <div class="meta">
+                            EUC Syd, Sønderborg · August 2026 –
+                        </div>
+
+                    </div>
+
+
+                    <div class="edu">
+
+                        <h4>
+                            EUX – Bygningssnedker
+                        </h4>
+
+                        <div class="meta">
+                            EUC Syd, Aabenraa · August 2017 – Maj 2021
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        Hvorfor IT-support?
+                    </h3>
+
+                    <p>
+                        Jeg vil gerne gøre min store interesse for
+                        IT og computere til mit arbejdsliv.
+                        IT-support kombinerer det, jeg bedst kan lide:
+                        hardware, netværk, fejlfinding og at finde
+                        løsninger, når noget ikke fungerer.
+                        Samtidig motiveres jeg af at lære nyt
+                        og udvikle mig teknisk.
+                    </p>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="footer">
+            JOHANN K. GEERTZ · CV · 2026
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =======================================================
+     EASTER EGG
+======================================================= -->
+
+<div
+    class="easter-egg"
+    id="easterEgg">
+
+    <div class="easter-box">
+
+        <h2>
+            🎮 KONAMI CODE ACTIVATED!
+        </h2>
+
+        <p>
+            Du fandt den hemmelige kode 😎
+        </p>
+
+        <video
+            id="easterVideo"
+            class="easter-video"
+            src="video.mp4"
+            controls
+            playsinline>
+        </video>
+
+        <button
+            class="close-button"
+            onclick="closeEasterEgg()">
+
+            Luk
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   THEME SYSTEM
+========================================================= */
+
+function changeTheme(theme, button) {
+
+    document.body.className =
+        "theme-" + theme;
+
+    document
+        .querySelectorAll(".theme-menu button")
+        .forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+    if (button) {
+        button.classList.add("active");
+    }
+
+    localStorage.setItem(
+        "cvTheme",
+        theme
+    );
+}
+
+
+/* =========================================================
+   LOAD SAVED THEME
+========================================================= */
+
+const savedTheme =
+    localStorage.getItem("cvTheme");
+
+if (savedTheme) {
+
+    const buttons =
+        document.querySelectorAll(
+            ".theme-menu button"
+        );
+
+    buttons.forEach(function(button) {
+
+        if (
+            button
+            .getAttribute("onclick")
+            .includes("'" + savedTheme + "'")
+        ) {
+
+            changeTheme(
+                savedTheme,
+                button
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   SECRET CODE
+   ↓ ↓ ↓
+========================================================= */
+
+const secretCode = [
+
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowDown"
+
+];
+
+let codeIndex = 0;
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeEasterEgg();
+
+            return;
+        }
+
+
+        if (
+            event.code ===
+            secretCode[codeIndex]
+        ) {
+
+            codeIndex++;
+
+
+            if (
+                codeIndex ===
+                secretCode.length
+            ) {
+
+                activateEasterEgg();
+
+                codeIndex = 0;
+
+            }
+
+        } else {
+
+            codeIndex =
+                event.code ===
+                secretCode[0]
+                    ? 1
+                    : 0;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   EASTER EGG OPEN
+========================================================= */
+
+function activateEasterEgg() {
+
+    const egg =
+        document.getElementById(
+            "easterEgg"
+        );
+
+    const video =
+        document.getElementById(
+            "easterVideo"
+        );
+
+
+    egg.classList.add("show");
+
+    document.body.classList.add(
+        "konami-active"
+    );
+
+
+    video.currentTime = 0;
+
+    video.muted = false;
+
+    video.play().catch(
+        function() {}
+    );
+
+
+    clearTimeout(
+        window.eggTimer
+    );
+
+
+    window.eggTimer =
+        setTimeout(
+            closeEasterEgg,
+            10000
+        );
+
+}
+
+
+/* =========================================================
+   EASTER EGG CLOSE
+========================================================= */
+
+function closeEasterEgg() {
+
+    const egg =
+        document.getElementById(
+            "easterEgg"
+        );
+
+    const video =
+        document.getElementById(
+            "easterVideo"
+        );
+
+
+    egg.classList.remove("show");
+
+    document.body.classList.remove(
+        "konami-active"
+    );
+
+
+    video.pause();
+
+    video.currentTime = 0;
+
+}
+
+</script>
+
+</body>
+</html>
+```
