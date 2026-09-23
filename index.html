@@ -13,168 +13,783 @@
             box-sizing: border-box;
         }
 
+        /* =========================
+           THEME VARIABLES
+        ========================= */
+
+        :root {
+            /* Classic Blue (Default) */
+            --primary: #1a5fb4;
+            --primary-dark: #0b4f8a;
+            --primary-light: #e8f0f8;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --background: #f0f4f8;
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-header: inherit;
+            --border-radius: 12px;
+            --sidebar-bg: linear-gradient(180deg, #e8f0f8 0%, #f5f9fc 100%);
+            --header-bg: linear-gradient(135deg, #1a5fb4 0%, #0b4f8a 100%);
+            --pattern: none;
+        }
+
+        /* Sunset Orange Theme */
+        [data-theme="sunset"] {
+            --primary: #e74c3c;
+            --primary-dark: #c0392b;
+            --primary-light: #fdf2f2;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(231, 76, 60, 0.2);
+            --shadow-hover: 0 20px 60px rgba(231, 76, 60, 0.3);
+            --sidebar-bg: linear-gradient(180deg, #fdf2f2 0%, #fff5f5 100%);
+            --header-bg: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        /* Forest Green Theme */
+        [data-theme="forest"] {
+            --primary: #27ae60;
+            --primary-dark: #1e8449;
+            --primary-light: #eafaf1;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(39, 174, 96, 0.2);
+            --shadow-hover: 0 20px 60px rgba(39, 174, 96, 0.3);
+            --sidebar-bg: linear-gradient(180deg, #eafaf1 0%, #f0fdf4 100%);
+            --header-bg: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+        }
+
+        /* Minecraft Theme */
+        [data-theme="minecraft"] {
+            --primary: #5d8c38;
+            --primary-dark: #3d5c25;
+            --primary-light: #e8f5e0;
+            --text: #3d3d3d;
+            --text-light: #666;
+            --background: #8b7355;
+            --white: #f5f5dc;
+            --shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 12px 12px 0px rgba(0, 0, 0, 0.4);
+            --font-main: 'Courier New', monospace;
+            --font-header: 'Impact', 'Arial Black', sans-serif;
+            --border-radius: 0px;
+            --sidebar-bg: #c4b896;
+            --header-bg: linear-gradient(180deg, #5d8c38 0%, #4a7030 50%, #5d8c38 100%);
+            --pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236b8e23' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Terminal Theme */
+        [data-theme="terminal"] {
+            --primary: #00ff00;
+            --primary-dark: #00cc00;
+            --primary-light: #001100;
+            --text: #00ff00;
+            --text-light: #00aa00;
+            --background: #000000;
+            --white: #0a0a0a;
+            --shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            --shadow-hover: 0 0 30px rgba(0, 255, 0, 0.5);
+            --font-main: 'Courier New', 'Consolas', monospace;
+            --font-header: 'Courier New', monospace;
+            --border-radius: 0px;
+            --sidebar-bg: #050505;
+            --header-bg: #000000;
+            --pattern: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 0, 0.03),
+                rgba(0, 255, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+        }
+
+        /* Cyberpunk Theme */
+        [data-theme="cyberpunk"] {
+            --primary: #ff00ff;
+            --primary-dark: #cc00cc;
+            --primary-light: #1a0a1a;
+            --text: #ffffff;
+            --text-light: #cccccc;
+            --background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            --white: #0a0a1a;
+            --shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+            --shadow-hover: 0 0 50px rgba(255, 0, 255, 0.6);
+            --font-main: 'Segoe UI', sans-serif;
+            --font-header: 'Impact', sans-serif;
+            --border-radius: 4px;
+            --sidebar-bg: linear-gradient(180deg, #1a0a2e 0%, #0f0c29 100%);
+            --header-bg: linear-gradient(135deg, #ff00ff 0%, #00ffff 50%, #ff00ff 100%);
+            --pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* =========================
+           BASE STYLES
+        ========================= */
+
         body {
             margin: 0;
-            padding: 30px;
-            background: #e9eef5;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #222;
+            padding: 40px 20px;
+            background: var(--background);
+            background-image: var(--pattern);
+            font-family: var(--font-main);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: all 0.5s ease;
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            width: 50px;
+            height: 50px;
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .theme-btn.active {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px var(--primary), 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .theme-btn::after {
+            content: attr(data-name);
+            position: absolute;
+            left: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+            left: 65px;
+        }
+
+        .theme-classic { background: linear-gradient(135deg, #1a5fb4, #0b4f8a); }
+        .theme-sunset { background: linear-gradient(135deg, #e74c3c, #f39c12); }
+        .theme-forest { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .theme-minecraft { 
+            background: #5d8c38;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 10px);
+        }
+        .theme-terminal { 
+            background: #000;
+            box-shadow: inset 0 0 10px #00ff00;
+        }
+        .theme-cyberpunk { 
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            animation: cyberpunk-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes cyberpunk-glow {
+            from { box-shadow: 0 0 10px #ff00ff; }
+            to { box-shadow: 0 0 30px #00ffff, 0 0 50px #ff00ff; }
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: var(--header-bg);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            font-family: var(--font-main);
+        }
+
+        [data-theme="minecraft"] .download-btn {
+            border: 4px solid #3d3d3d;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        [data-theme="terminal"] .download-btn {
+            border: 2px solid #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+        }
+
+        [data-theme="cyberpunk"] .download-btn {
+            border: 2px solid #ff00ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        [data-theme="minecraft"] .download-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.6);
+        }
+
+        [data-theme="terminal"] .download-btn:hover {
+            background: #001100;
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.8);
+        }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
         }
 
         .cv {
             width: 210mm;
             min-height: 297mm;
-            margin: auto;
-            background: white;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
             overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="minecraft"] .cv {
+            border: 4px solid #3d3d3d;
+        }
+
+        [data-theme="terminal"] .cv {
+            border: 2px solid #00ff00;
         }
 
         .header {
-            background: #0b4f8a;
+            background: var(--header-bg);
             color: white;
-            padding: 30px;
+            padding: 40px;
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 35px;
+            position: relative;
+            font-family: var(--font-header);
+        }
+
+        [data-theme="minecraft"] .header {
+            border-bottom: 8px solid #3d5c25;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.5);
+        }
+
+        [data-theme="terminal"] .header {
+            border-bottom: 2px solid #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        [data-theme="cyberpunk"] .header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="cyberpunk"] .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: cyberpunk-shine 3s infinite;
+        }
+
+        @keyframes cyberpunk-shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .profile-picture {
-            width: 150px;
-            height: 180px;
+            width: 160px;
+            height: 190px;
             object-fit: cover;
-            border-radius: 8px;
-            border: 4px solid white;
+            border-radius: var(--border-radius);
+            border: 5px solid rgba(255, 255, 255, 0.3);
             background: #ddd;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="minecraft"] .profile-picture {
+            border: 4px solid #3d3d3d;
+            border-radius: 0;
+            image-rendering: pixelated;
+        }
+
+        [data-theme="terminal"] .profile-picture {
+            border: 2px solid #00ff00;
+            border-radius: 0;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        [data-theme="cyberpunk"] .profile-picture {
+            border: 3px solid #ff00ff;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.02);
         }
 
         .header-text h1 {
-            margin: 0 0 8px 0;
-            font-size: 34px;
+            margin: 0 0 10px 0;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="minecraft"] .header-text h1 {
+            font-size: 42px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        [data-theme="terminal"] .header-text h1 {
+            font-size: 36px;
+            letter-spacing: 3px;
         }
 
         .header-text h3 {
             margin: 0;
             font-size: 20px;
-            font-weight: normal;
+            font-weight: 400;
             opacity: 0.95;
+            letter-spacing: 0.5px;
         }
 
         .content {
             display: grid;
-            grid-template-columns: 32% 68%;
+            grid-template-columns: 34% 66%;
+        }
+
+        [data-theme="terminal"] .content {
+            border-top: 1px solid #003300;
         }
 
         .sidebar {
-            background: #eef5fb;
-            padding: 25px;
+            background: var(--sidebar-bg);
+            padding: 30px;
+            border-right: 1px solid rgba(0,0,0,0.1);
+        }
+
+        [data-theme="minecraft"] .sidebar {
+            border-right: 4px solid #3d3d3d;
+        }
+
+        [data-theme="terminal"] .sidebar {
+            border-right: 1px solid #003300;
+            background: #0a0a0a;
+        }
+
+        [data-theme="cyberpunk"] .sidebar {
+            border-right: 1px solid #ff00ff;
         }
 
         .main {
-            padding: 30px;
+            padding: 35px;
         }
 
         h2 {
-            color: #0b4f8a;
-            font-size: 20px;
-            border-bottom: 2px solid #0b4f8a;
-            padding-bottom: 5px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 8px;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            font-family: var(--font-header);
+        }
+
+        [data-theme="minecraft"] h2 {
+            border-bottom: 4px solid var(--primary);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="terminal"] h2 {
+            border-bottom: 2px solid var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        [data-theme="cyberpunk"] h2 {
+            border-bottom: 2px solid var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
         }
 
         section {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .contact p {
-            margin: 8px 0;
+            margin: 10px 0;
             font-size: 14px;
-            line-height: 1.4;
+            line-height: 1.5;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
 
         .skill {
-            margin-bottom: 12px;
+            margin-bottom: 18px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        [data-theme="minecraft"] .skill {
+            border: 3px solid #3d3d3d;
+            border-left: 6px solid var(--primary);
+            background: #dcdcdc;
+        }
+
+        [data-theme="terminal"] .skill {
+            border: 1px solid #003300;
+            border-left: 3px solid var(--primary);
+            background: #050505;
+        }
+
+        [data-theme="cyberpunk"] .skill {
+            border: 1px solid var(--primary);
+            border-left: 4px solid var(--primary);
+            background: rgba(255, 0, 255, 0.05);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.1);
+        }
+
+        .skill:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
         }
 
         .skill strong {
             display: block;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+            font-size: 14px;
+        }
+
+        [data-theme="terminal"] .skill strong {
+            color: var(--primary);
+        }
+
+        .skill p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
         }
 
         .social-links a {
-            display: block;
-            color: #0b4f8a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
             text-decoration: none;
-            margin-bottom: 8px;
-            font-weight: bold;
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 12px;
+            border-radius: var(--border-radius);
+            transition: all 0.2s ease;
+        }
+
+        [data-theme="minecraft"] .social-links a {
+            border: 3px solid transparent;
+            background: #d4c4a8;
+        }
+
+        [data-theme="minecraft"] .social-links a:hover {
+            border-color: #3d3d3d;
+            background: #c4b896;
+        }
+
+        [data-theme="terminal"] .social-links a {
+            border: 1px solid #003300;
+            background: #0a0a0a;
+        }
+
+        [data-theme="terminal"] .social-links a:hover {
+            border-color: #00ff00;
+            background: #001100;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
         }
 
         .social-links a:hover {
-            text-decoration: underline;
+            background: rgba(0,0,0,0.05);
+            transform: translateX(5px);
+            color: var(--primary-dark);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
         }
 
         p {
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.7;
             margin-top: 0;
+            color: var(--text);
+        }
+
+        [data-theme="terminal"] p {
+            color: var(--text);
         }
 
         .job {
-            margin-bottom: 22px;
+            margin-bottom: 28px;
+            padding: 20px;
+            background: rgba(0,0,0,0.02);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        [data-theme="minecraft"] .job {
+            border: 3px solid #3d3d3d;
+            border-left: 6px solid var(--primary);
+            background: #e8e0d0;
+        }
+
+        [data-theme="terminal"] .job {
+            border: 1px solid #003300;
+            border-left: 3px solid var(--primary);
+            background: #080808;
+        }
+
+        [data-theme="cyberpunk"] .job {
+            border: 1px solid var(--primary);
+            border-left: 4px solid var(--primary);
+            background: rgba(255, 0, 255, 0.03);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+
+        .job:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
         .job h3 {
-            margin: 0;
-            color: #222;
+            margin: 0 0 6px 0;
+            color: var(--text);
             font-size: 17px;
+            font-weight: 600;
+        }
+
+        [data-theme="terminal"] .job h3 {
+            color: var(--primary);
         }
 
         .job .company {
-            color: #0b4f8a;
-            font-weight: bold;
-            margin-top: 3px;
-        }
-
-        .date {
-            color: #666;
-            font-size: 13px;
-            margin: 4px 0 8px 0;
-        }
-
-        .education {
-            margin-bottom: 18px;
-        }
-
-        .education h3 {
-            margin: 0;
-            font-size: 16px;
-        }
-
-        .education .school {
-            color: #0b4f8a;
-            font-weight: bold;
-            margin-top: 3px;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin-top: 5px;
-        }
-
-        li {
-            margin-bottom: 7px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 4px;
             font-size: 14px;
         }
 
-        footer {
-            background: #0b4f8a;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            font-size: 12px;
+        .date {
+            color: var(--text-light);
+            font-size: 13px;
+            margin: 8px 0 12px 0;
+            font-weight: 500;
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 20px;
         }
 
+        [data-theme="minecraft"] .date {
+            border-radius: 0;
+            border: 2px solid #3d3d3d;
+            background: #d4c4a8;
+        }
+
+        [data-theme="terminal"] .date {
+            border-radius: 0;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+        }
+
+        [data-theme="cyberpunk"] .date {
+            border: 1px solid var(--primary);
+            background: rgba(255, 0, 255, 0.1);
+            color: var(--primary);
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        .job p {
+            margin-bottom: 8px;
+        }
+
+        .education {
+            margin-bottom: 22px;
+            padding: 18px;
+            background: rgba(0,0,0,0.02);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        [data-theme="minecraft"] .education {
+            border: 3px solid #3d3d3d;
+            border-left: 6px solid var(--primary);
+            background: #e8e0d0;
+        }
+
+        [data-theme="terminal"] .education {
+            border: 1px solid #003300;
+            border-left: 3px solid var(--primary);
+            background: #080808;
+        }
+
+        [data-theme="cyberpunk"] .education {
+            border: 1px solid var(--primary);
+            border-left: 4px solid var(--primary);
+            background: rgba(0, 255, 255, 0.03);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .education:hover {
+            transform: translateX(5px);
+        }
+
+        .education h3 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        [data-theme="terminal"] .education h3 {
+            color: var(--primary);
+        }
+
+        .education .school {
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 4px;
+            font-size: 14px;
+        }
+
+        ul {
+            padding-left: 0;
+            margin-top: 10px;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text);
+        }
+
+        li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        [data-theme="minecraft"] li::before {
+            content: '■';
+        }
+
+        [data-theme="terminal"] li::before {
+            content: '>';
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            font-family: var(--font-header);
+        }
+
+        [data-theme="minecraft"] footer {
+            border-top: 8px solid #3d3d3d;
+            text-transform: uppercase;
+        }
+
+        [data-theme="terminal"] footer {
+            border-top: 2px solid #00ff00;
+        }
 
         /* =========================
            EASTER EGG
@@ -186,19 +801,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-
-            background: rgba(0, 0, 0, 0.80);
-
+            background: rgba(0, 0, 0, 0.85);
             display: flex;
             justify-content: center;
             align-items: center;
-
             opacity: 0;
             visibility: hidden;
-
             transition: opacity 0.3s ease;
-
             z-index: 9999;
+            backdrop-filter: blur(5px);
         }
 
         .easter-egg.show {
@@ -209,21 +820,30 @@
         .easter-box {
             width: 700px;
             max-width: 90%;
-
-            background: #0b4f8a;
+            background: var(--header-bg);
             color: white;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
+            padding: 30px;
+            border-radius: var(--border-radius);
             text-align: center;
-
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             transform: scale(0.8);
-
             transition: transform 0.3s ease;
+        }
+
+        [data-theme="minecraft"] .easter-box {
+            border: 6px solid #3d3d3d;
+            border-radius: 0;
+        }
+
+        [data-theme="terminal"] .easter-box {
+            border: 2px solid #00ff00;
+            border-radius: 0;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+        }
+
+        [data-theme="cyberpunk"] .easter-box {
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 60px rgba(255, 0, 255, 0.6);
         }
 
         .easter-egg.show .easter-box {
@@ -233,46 +853,73 @@
         .easter-box h2 {
             color: white;
             border: none;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .easter-box p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 16px;
+            opacity: 0.95;
         }
 
         .easter-video {
             width: 100%;
             max-height: 400px;
-
             background: black;
-
-            border-radius: 8px;
-
+            border-radius: var(--border-radius);
             display: block;
+            margin-bottom: 25px;
+        }
 
-            margin-bottom: 20px;
+        [data-theme="minecraft"] .easter-video {
+            border: 4px solid #3d3d3d;
+            border-radius: 0;
+        }
+
+        [data-theme="terminal"] .easter-video {
+            border: 2px solid #00ff00;
+            border-radius: 0;
         }
 
         .close-button {
             border: none;
-
             background: white;
-            color: #0b4f8a;
-
-            padding: 10px 25px;
-
-            border-radius: 6px;
-
-            font-size: 15px;
-            font-weight: bold;
-
+            color: var(--primary);
+            padding: 12px 35px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: var(--font-main);
+        }
+
+        [data-theme="minecraft"] .close-button {
+            border: 4px solid #3d3d3d;
+            border-radius: 0;
+            text-transform: uppercase;
+        }
+
+        [data-theme="terminal"] .close-button {
+            border: 2px solid #00ff00;
+            background: #000;
+            color: #00ff00;
+            border-radius: 0;
+        }
+
+        [data-theme="cyberpunk"] .close-button {
+            border: 2px solid #ff00ff;
+            background: #000;
+            color: #ff00ff;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
 
         .close-button:hover {
-            background: #e5e5e5;
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
-
 
         /* =========================
            KONAMI SHAKE
@@ -283,29 +930,12 @@
         }
 
         @keyframes konami-shake {
-
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            25% {
-                transform: translate(2px, -2px) rotate(0.3deg);
-            }
-
-            50% {
-                transform: translate(-2px, 2px) rotate(-0.3deg);
-            }
-
-            75% {
-                transform: translate(2px, 2px) rotate(0.3deg);
-            }
-
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(2px, -2px) rotate(0.3deg); }
+            50% { transform: translate(-2px, 2px) rotate(-0.3deg); }
+            75% { transform: translate(2px, 2px) rotate(0.3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
         }
-
 
         /* =========================
            PRINT
@@ -317,16 +947,22 @@
         }
 
         @media print {
-
             body {
                 padding: 0;
-                background: white;
+                background: white !important;
             }
 
             .cv {
                 width: 100%;
                 min-height: auto;
                 box-shadow: none;
+                border-radius: 0 !important;
+                border: none !important;
+            }
+
+            .theme-switcher,
+            .download-btn {
+                display: none !important;
             }
 
             .easter-egg {
@@ -337,53 +973,88 @@
                 animation: none;
             }
 
+            .job, .education, .skill {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
             footer {
                 display: none;
             }
-
         }
-
 
         /* =========================
            MOBIL
         ========================= */
 
         @media (max-width: 800px) {
-
             body {
                 padding: 0;
+            }
+
+            .theme-switcher {
+                top: 10px;
+                left: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-width: 200px;
+            }
+
+            .theme-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .theme-btn::after {
+                display: none;
+            }
+
+            .download-btn {
+                top: 10px;
+                right: 10px;
+                padding: 10px 16px;
+                font-size: 13px;
             }
 
             .cv {
                 width: 100%;
                 min-height: 100vh;
                 box-shadow: none;
+                border-radius: 0 !important;
             }
 
             .header {
                 flex-direction: column;
                 text-align: center;
-                padding: 25px;
+                padding: 30px 20px;
             }
 
             .profile-picture {
-                width: 140px;
-                height: 170px;
+                width: 150px;
+                height: 180px;
             }
 
             .content {
                 grid-template-columns: 1fr;
             }
 
+            .sidebar {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            [data-theme="minecraft"] .sidebar {
+                border-bottom: 4px solid #3d3d3d;
+            }
+
             .sidebar,
             .main {
-                padding: 25px;
+                padding: 25px 20px;
             }
 
             .header-text h1 {
                 font-size: 28px;
             }
-
         }
 
     </style>
@@ -393,6 +1064,25 @@
 
 <body>
 
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="theme-btn theme-classic active" data-theme="classic" data-name="Classic Blue" onclick="setTheme('classic')"></button>
+        <button class="theme-btn theme-sunset" data-theme="sunset" data-name="Sunset" onclick="setTheme('sunset')"></button>
+        <button class="theme-btn theme-forest" data-theme="forest" data-name="Forest" onclick="setTheme('forest')"></button>
+        <button class="theme-btn theme-minecraft" data-theme="minecraft" data-name="Minecraft" onclick="setTheme('minecraft')"></button>
+        <button class="theme-btn theme-terminal" data-theme="terminal" data-name="Terminal" onclick="setTheme('terminal')"></button>
+        <button class="theme-btn theme-cyberpunk" data-theme="cyberpunk" data-name="Cyberpunk" onclick="setTheme('cyberpunk')"></button>
+    </div>
+
+    <!-- Download Button -->
+    <button class="download-btn" onclick="downloadPDF()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download CV som PDF
+    </button>
 
     <!-- =========================
          CV
@@ -441,16 +1131,24 @@
                     <h2>Kontakt</h2>
 
                     <p>
-                        📍 Ulkebøldam 107<br>
-                        6400 Sønderborg
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="#e74c3c">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Ulkebøldam 107, 6400 Sønderborg
                     </p>
 
                     <p>
-                        📞 42 67 89 88
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="#27ae60">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        42 67 89 88
                     </p>
 
                     <p>
-                        ✉️ geertzjohann@gmail.com
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="#3498db">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        geertzjohann@gmail.com
                     </p>
 
                 </section>
@@ -462,17 +1160,28 @@
 
                     <h2>Sociale medier</h2>
 
-                    <a
-                        href="DIN-LINKEDIN-LINK"
-                        target="_blank"
-                    >
+                    <a href="DIN-LINKEDIN-LINK" target="_blank">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="#0A66C2">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
                         LinkedIn
                     </a>
 
-                    <a
-                        href="DIN-INSTAGRAM-LINK"
-                        target="_blank"
-                    >
+                    <a href="DIN-INSTAGRAM-LINK" target="_blank">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <defs>
+                                <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#feda75"/>
+                                    <stop offset="25%" style="stop-color:#fa7e1e"/>
+                                    <stop offset="50%" style="stop-color:#d62976"/>
+                                    <stop offset="75%" style="stop-color:#962fbf"/>
+                                    <stop offset="100%" style="stop-color:#4f5bd5"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#instagram-gradient)"/>
+                            <path d="M12 6.5c-3.03 0-5.5 2.47-5.5 5.5s2.47 5.5 5.5 5.5 5.5-2.47 5.5-5.5-2.47-5.5-5.5-5.5zm0 9c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="white"/>
+                            <circle cx="17.5" cy="6.5" r="1.5" fill="white"/>
+                        </svg>
                         Instagram
                     </a>
 
@@ -889,6 +1598,35 @@
     ========================= -->
 
     <script>
+
+        // Theme Switcher
+        function setTheme(themeName) {
+            document.body.setAttribute('data-theme', themeName);
+            
+            // Update active button
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('data-theme') === themeName) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('cv-theme', themeName);
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('cv-theme');
+            if(savedTheme) {
+                setTheme(savedTheme);
+            }
+        });
+
+        // PDF Download Function
+        function downloadPDF() {
+            window.print();
+        }
 
         /*
          * HEMMELIG KODE:
