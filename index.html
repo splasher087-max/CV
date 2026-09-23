@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Johann K. Geertz - CV</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            background: #e9eef5;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+        }
+
+        .cv {
+            width: 210mm;
+            min-height: 297mm;
+            margin: auto;
+            background: white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #0b4f8a;
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid white;
+            background: #ddd;
+        }
+
+        .header-text h1 {
+            margin: 0 0 8px 0;
+            font-size: 34px;
+        }
+
+        .header-text h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: normal;
+            opacity: 0.95;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 32% 68%;
+        }
+
+        .sidebar {
+            background: #eef5fb;
+            padding: 25px;
+        }
+
+        .main {
+            padding: 30px;
+        }
+
+        h2 {
+            color: #0b4f8a;
+            font-size: 20px;
+            border-bottom: 2px solid #0b4f8a;
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .skill {
+            margin-bottom: 12px;
+        }
+
+        .skill strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .social-links a {
+            display: block;
+            color: #0b4f8a;
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 0;
+        }
+
+        .job {
+            margin-bottom: 22px;
+        }
+
+        .job h3 {
+            margin: 0;
+            color: #222;
+            font-size: 17px;
+        }
+
+        .job .company {
+            color: #0b4f8a;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        .date {
+            color: #666;
+            font-size: 13px;
+            margin: 4px 0 8px 0;
+        }
+
+        .education {
+            margin-bottom: 18px;
+        }
+
+        .education h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .education .school {
+            color: #0b4f8a;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #0b4f8a;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           EASTER EGG
+        ========================= */
+
+        .easter-egg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.80);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: opacity 0.3s ease;
+
+            z-index: 9999;
+        }
+
+        .easter-egg.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .easter-box {
+            width: 700px;
+            max-width: 90%;
+
+            background: #0b4f8a;
+            color: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+            transform: scale(0.8);
+
+            transition: transform 0.3s ease;
+        }
+
+        .easter-egg.show .easter-box {
+            transform: scale(1);
+        }
+
+        .easter-box h2 {
+            color: white;
+            border: none;
+            margin-bottom: 5px;
+        }
+
+        .easter-box p {
+            margin-bottom: 20px;
+        }
+
+        .easter-video {
+            width: 100%;
+            max-height: 400px;
+
+            background: black;
+
+            border-radius: 8px;
+
+            display: block;
+
+            margin-bottom: 20px;
+        }
+
+        .close-button {
+            border: none;
+
+            background: white;
+            color: #0b4f8a;
+
+            padding: 10px 25px;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            background: #e5e5e5;
+        }
+
+
+        /* =========================
+           KONAMI SHAKE
+        ========================= */
+
+        body.konami-active .cv {
+            animation: konami-shake 0.4s infinite;
+        }
+
+        @keyframes konami-shake {
+
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(2px, -2px) rotate(0.3deg);
+            }
+
+            50% {
+                transform: translate(-2px, 2px) rotate(-0.3deg);
+            }
+
+            75% {
+                transform: translate(2px, 2px) rotate(0.3deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+        }
+
+
+        /* =========================
+           PRINT
+        ========================= */
+
+        @page {
+            size: A4 portrait;
+            margin: 10mm;
+        }
+
+        @media print {
+
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .cv {
+                width: 100%;
+                min-height: auto;
+                box-shadow: none;
+            }
+
+            .easter-egg {
+                display: none !important;
+            }
+
+            body.konami-active .cv {
+                animation: none;
+            }
+
+            footer {
+                display: none;
+            }
+
+        }
+
+
+        /* =========================
+           MOBIL
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 0;
+            }
+
+            .cv {
+                width: 100%;
+                min-height: 100vh;
+                box-shadow: none;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .profile-picture {
+                width: 140px;
+                height: 170px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar,
+            .main {
+                padding: 25px;
+            }
+
+            .header-text h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CV
+    ========================= -->
+
+    <div class="cv">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <img
+                src="billede.png"
+                alt="Portræt af Johann K. Geertz"
+                class="profile-picture"
+            >
+
+            <div class="header-text">
+
+                <h1>Johann K. Geertz</h1>
+
+                <h3>
+                    IT-Supporter / Datateknikerelev
+                </h3>
+
+            </div>
+
+        </header>
+
+
+        <!-- INDHOLD -->
+
+        <div class="content">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+
+                <!-- KONTAKT -->
+
+                <section class="contact">
+
+                    <h2>Kontakt</h2>
+
+                    <p>
+                        📍 Ulkebøldam 107<br>
+                        6400 Sønderborg
+                    </p>
+
+                    <p>
+                        📞 42 67 89 88
+                    </p>
+
+                    <p>
+                        ✉️ geertzjohann@gmail.com
+                    </p>
+
+                </section>
+
+
+                <!-- SOCIALE MEDIER -->
+
+                <section class="social-links">
+
+                    <h2>Sociale medier</h2>
+
+                    <a
+                        href="DIN-LINKEDIN-LINK"
+                        target="_blank"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <a
+                        href="DIN-INSTAGRAM-LINK"
+                        target="_blank"
+                    >
+                        Instagram
+                    </a>
+
+                </section>
+
+
+                <!-- KOMPETENCER -->
+
+                <section>
+
+                    <h2>Kompetencer</h2>
+
+                    <div class="skill">
+
+                        <strong>
+                            Lærenem og nysgerrig
+                        </strong>
+
+                        <p>
+                            Hurtig til at sætte mig ind i nye
+                            teknologier og arbejdsmetoder.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Ansvarsbevidst og stabil
+                        </strong>
+
+                        <p>
+                            Tager ansvar for mine opgaver og
+                            følger dem til dørs.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Teknisk forståelse
+                        </strong>
+
+                        <p>
+                            God praktisk forståelse for
+                            computere, hardware og teknik.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Problemløsende
+                        </strong>
+
+                        <p>
+                            Arbejder struktureret med at finde
+                            og løse tekniske problemer.
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <strong>
+                            Fleksibel og imødekommende
+                        </strong>
+
+                        <p>
+                            Trives med forskellige mennesker
+                            og nye udfordringer.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SPROG -->
+
+                <section>
+
+                    <h2>Sprog</h2>
+
+                    <ul>
+
+                        <li>
+                            Tysk – modersmål
+                        </li>
+
+                        <li>
+                            Dansk – flydende
+                        </li>
+
+                        <li>
+                            Engelsk – avanceret
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <!-- CERTIFIKATER -->
+
+                <section>
+
+                    <h2>Certifikater</h2>
+
+                    <ul>
+
+                        <li>
+                            Gaffeltruck certifikat B
+                        </li>
+
+                        <li>
+                            Epoxy
+                        </li>
+
+                        <li>
+                            Stillads
+                        </li>
+
+                    </ul>
+
+                </section>
+
+            </aside>
+
+
+            <!-- MAIN -->
+
+            <main class="main">
+
+
+                <!-- PROFIL -->
+
+                <section>
+
+                    <h2>Profil</h2>
+
+                    <p>
+                        Jeg har en stor interesse for IT og
+                        computere og bruger meget af min fritid
+                        på at bygge, undersøge og arbejde med
+                        computerhardware.
+                    </p>
+
+                    <p>
+                        Jeg arbejder praktisk og struktureret
+                        og kan godt lide at finde årsagen til
+                        tekniske problemer og finde en løsning.
+                        Jeg ønsker at udvikle mine kompetencer
+                        inden for hardware, netværk,
+                        fejlfinding og IT-drift.
+                    </p>
+
+                </section>
+
+
+                <!-- ERHVERVSERFARING -->
+
+                <section>
+
+                    <h2>Erhvervserfaring</h2>
+
+
+                    <div class="job">
+
+                        <h3>
+                            Montør af specialindretning /
+                            interiør
+                        </h3>
+
+                        <div class="company">
+                            VBI, Kliplev
+                        </div>
+
+                        <div class="date">
+                            Januar 2024 – Oktober 2025
+                        </div>
+
+                        <p>
+                            Arbejde med specialindretning af
+                            køretøjer og montering af forskellige
+                            mekaniske og elektriske komponenter.
+                        </p>
+
+                        <p>
+                            Blandt andet arbejde med LED-belysning,
+                            højtalere, varme og andre elektriske
+                            systemer. Arbejdet krævede præcision,
+                            teknisk forståelse og fejlfinding.
+                        </p>
+
+                    </div>
+
+
+                    <div class="job">
+
+                        <h3>
+                            Køkkenmedhjælper
+                        </h3>
+
+                        <div class="company">
+                            Hotel Sønderborg Strand,
+                            Sønderborg
+                        </div>
+
+                        <div class="date">
+                            Juli 2021 – Januar 2024
+                        </div>
+
+                        <p>
+                            Arbejde i køkken og buffet med ansvar
+                            for madlavning, opfyldning og
+                            kvalitet.
+                        </p>
+
+                        <p>
+                            Arbejde med buffet til cirka
+                            50–100 personer samt fokus på
+                            kundeservice, overblik og ansvar
+                            i travle situationer.
+                        </p>
+
+                    </div>
+
+
+                    <div class="job">
+
+                        <h3>
+                            Snedkersvend / Tømrer
+                        </h3>
+
+                        <div class="company">
+                            Syddansk Håndværkerservice,
+                            Sønderborg
+                        </div>
+
+                        <div class="date">
+                            Juni 2019 – April 2022
+                        </div>
+
+                        <p>
+                            Arbejde med selvstændige tømrer- og
+                            renoveringsopgaver.
+                        </p>
+
+                        <p>
+                            Ansvar for arbejdsopgaver,
+                            koordinering af medarbejdere og
+                            arbejde på byggepladser. Fokus på
+                            præcision, planlægning og
+                            problemløsning.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- UDDANNELSE -->
+
+                <section>
+
+                    <h2>Uddannelse</h2>
+
+
+                    <div class="education">
+
+                        <h3>
+                            Datatekniker / IT-Supporter
+                        </h3>
+
+                        <div class="school">
+                            EUC Syd, Sønderborg
+                        </div>
+
+                        <div class="date">
+                            August 2026 –
+                        </div>
+
+                    </div>
+
+
+                    <div class="education">
+
+                        <h3>
+                            EUX – Bygningssnedker
+                        </h3>
+
+                        <div class="school">
+                            EUC Syd, Aabenraa
+                        </div>
+
+                        <div class="date">
+                            August 2017 – Maj 2021
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- IT & TEKNIK -->
+
+                <section>
+
+                    <h2>IT & Teknik</h2>
+
+                    <p>
+                        Jeg har en stor interesse for IT,
+                        computere og teknologi. Jeg bygger
+                        blandt andet mine egne computere og
+                        arbejder med hardware og forskellige
+                        tekniske løsninger.
+                    </p>
+
+                    <p>
+                        Jeg interesserer mig især for
+                        hardware, netværk, fejlfinding,
+                        problemløsning og hvordan forskellige
+                        IT-systemer fungerer sammen.
+                    </p>
+
+                </section>
+
+
+                <!-- HVORFOR IT -->
+
+                <section>
+
+                    <h2>Hvorfor IT-support?</h2>
+
+                    <p>
+                        Min interesse for computere og IT har
+                        i længere tid været en stor del af min
+                        fritid, og jeg ønsker nu at gøre denne
+                        interesse til min karriere.
+                    </p>
+
+                    <p>
+                        Jeg synes især, at kombinationen af
+                        teknik, problemløsning og kontakt med
+                        andre mennesker er spændende. Derfor
+                        har jeg valgt uddannelsen som
+                        datatekniker med fokus på IT-support.
+                    </p>
+
+                </section>
+
+            </main>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+            CV – Johann K. Geertz
+        </footer>
+
+    </div>
+
+
+    <!-- =========================
+         EASTER EGG
+    ========================= -->
+
+    <div
+        class="easter-egg"
+        id="easterEgg"
+    >
+
+        <div class="easter-box">
+
+            <h2>
+                🎮 KONAMI CODE ACTIVATED!
+            </h2>
+
+            <p>
+                Du fandt den hemmelige kode 😎
+            </p>
+
+            <video
+                id="easterVideo"
+                class="easter-video"
+                src="video.mp4"
+                controls
+                playsinline
+            ></video>
+
+            <button
+                class="close-button"
+                onclick="closeEasterEgg()"
+            >
+                Luk
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /*
+         * HEMMELIG KODE:
+         *
+         * G
+         * O
+         * N
+         * D
+         * E
+         */
+
+        const konamiCode = [
+            "ArrowDown",
+            "ArrowDown",
+            "ArrowDown"
+        ];
+
+
+        let konamiIndex = 0;
+
+
+        /* =========================
+           LYTTER EFTER KODEN
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.code ===
+                    konamiCode[konamiIndex]
+                ) {
+
+                    konamiIndex++;
+
+
+                    /* Hele GONDE er indtastet */
+
+                    if (
+                        konamiIndex ===
+                        konamiCode.length
+                    ) {
+
+                        activateEasterEgg();
+
+                        konamiIndex = 0;
+
+                    }
+
+                }
+
+                else {
+
+                    /*
+                     * Forkert tast.
+                     * Start koden forfra.
+                     */
+
+                    konamiIndex = 0;
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           AKTIVER EASTER EGG
+        ========================= */
+
+        function activateEasterEgg() {
+
+            const easterEgg =
+                document.getElementById(
+                    "easterEgg"
+                );
+
+
+            const video =
+                document.getElementById(
+                    "easterVideo"
+                );
+
+
+            /* Vis popup */
+
+            easterEgg.classList.add(
+                "show"
+            );
+
+
+            /* Få CV'et til at ryste */
+
+            document.body.classList.add(
+                "konami-active"
+            );
+
+
+            /* Start video fra begyndelsen */
+
+            video.currentTime = 0;
+
+
+            /*
+             * Videoens egen lyd bruges.
+             * Der er ingen separat MP3.
+             */
+
+            video.muted = false;
+
+
+            /* Start video */
+
+            video.play()
+                .catch(function () {
+
+                    console.log(
+                        "Videoen kunne ikke starte automatisk."
+                    );
+
+                });
+
+
+            /*
+             * Luk automatisk efter 10 sekunder.
+             */
+
+            setTimeout(
+                function () {
+
+                    closeEasterEgg();
+
+                },
+                10000
+            );
+
+        }
+
+
+        /* =========================
+           LUK EASTER EGG
+        ========================= */
+
+        function closeEasterEgg() {
+
+            const easterEgg =
+                document.getElementById(
+                    "easterEgg"
+                );
+
+
+            const video =
+                document.getElementById(
+                    "easterVideo"
+                );
+
+
+            /* Skjul popup */
+
+            easterEgg.classList.remove(
+                "show"
+            );
+
+
+            /* Stop rystelser */
+
+            document.body.classList.remove(
+                "konami-active"
+            );
+
+
+            /* Stop video */
+
+            video.pause();
+
+
+            /* Start forfra næste gang */
+
+            video.currentTime = 0;
+
+        }
+
+
+        /* =========================
+           ESC LUKKER VIDEOEN
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeEasterEgg();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
